@@ -5,7 +5,7 @@ function showScreen(id) {
     });
     // Show target screen
     const target = document.getElementById(id);
-    if(target) {
+    if (target) {
         target.classList.add('active');
         window.scrollTo(0, 0);
     }
@@ -19,17 +19,17 @@ function selectOption(btn, questionNumber) {
     // Determine current screen options
     const screen = document.getElementById(`screen-q${questionNumber}`);
     const options = screen.querySelectorAll('.option-btn');
-    
+
     // Remove "selected" from all
     options.forEach(opt => opt.classList.remove('selected'));
-    
+
     // Add "selected" to clicked
     btn.classList.add('selected');
-    
+
     // After a short delay, go to next question
     setTimeout(() => {
         const nextQ = questionNumber + 1;
-        if(nextQ <= 6) {
+        if (nextQ <= 6) {
             showScreen(`screen-q${nextQ}`);
         } else {
             // Finished quiz, show analyzing
@@ -45,11 +45,11 @@ function startAnalysis() {
         // Change text or stop spinner if we want, but let's just reveal the button
         const btnContainer = document.getElementById('btn-result');
         const spinner = document.querySelector('.spinner');
-        
+
         spinner.style.borderTopColor = 'var(--green)'; // Change color when done
         spinner.style.animation = 'none'; // Stop spinning
         spinner.style.transform = 'rotate(45deg)'; // Make it look like a check or just static
-        
+
         // Let's replace spinner with a check icon
         spinner.outerHTML = `
             <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--green); display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
@@ -58,10 +58,10 @@ function startAnalysis() {
                 </svg>
             </div>
         `;
-        
-        document.querySelector('#screen-analyzing h2').textContent = "Análise concluída!";
-        document.querySelector('#screen-analyzing p').textContent = "Seu resultado está pronto.";
-        
+
+        document.querySelector('#screen-analyzing h2').textContent = "Pronto! Análise Concluída";
+        document.querySelector('#screen-analyzing p').textContent = "Identificamos o seu perfil de vendedor.";
+
         btnContainer.style.display = 'flex';
     }, 2500); // 2.5 seconds analyzing
 }
