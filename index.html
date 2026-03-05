@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Descubra se está perdendo dinheiro nas instalações</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container" id="app">
+
+        <!-- Screen 0: Intro -->
+        <div class="screen active" id="screen-intro">
+            <div
+                style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div
+                    style="width: 80px; height: 80px; background-color: var(--primary); border-radius: 20px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+
+                <h1 style="font-size: 2rem; margin-bottom: 16px;">Descubra em 60 segundos se você está deixando dinheiro
+                    escapar nas suas instalações</h1>
+
+                <p class="text-light fw-600">Teste rápido para técnicos que trabalham com sinal + restante.</p>
+            </div>
+
+            <div class="fixed-bottom">
+                <button class="btn btn-primary" onclick="startQuiz()">COMEÇAR AGORA</button>
+            </div>
+        </div>
+
+        <!-- Screen 1: Question 1 -->
+        <div class="screen" id="screen-q1">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 20%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Você trabalha com qual tipo de instalação?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 1)">Ar-condicionado <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 1)">Energia solar <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 1)">Portão eletrônico <div class="radio">
+                        </div></button>
+                    <button class="option-btn" onclick="selectOption(this, 1)">Câmeras <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 1)">Cerca elétrica <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 1)">Outros <div class="radio"></div></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Question 2 -->
+        <div class="screen" id="screen-q2">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Você costuma receber como?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 2)">50% antes / 50% depois <div
+                            class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 2)">Entrada + restante combinado <div
+                            class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 2)">Parcelado informalmente <div
+                            class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 2)">À vista <div class="radio"></div>
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Question 3 -->
+        <div class="screen" id="screen-q3">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Hoje você sabe exatamente quanto ainda tem para receber?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 3)">Sei exatamente <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 3)">Tenho uma ideia <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 3)">Não faço ideia <div class="radio"></div>
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 4: Question 4 -->
+        <div class="screen" id="screen-q4">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Já deixou de cobrar algum cliente por esquecimento?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 4)">Sim <div class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 4)">Talvez <div class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 4)">Nunca (acho) <div class="radio"></div>
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: Question 5 -->
+        <div class="screen" id="screen-q5">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Onde você controla seus recebimentos?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 5)">WhatsApp <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 5)">Caderno <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 5)">Planilha <div class="radio"></div>
+                        </button>
+                    <button class="option-btn" onclick="selectOption(this, 5)">Não controlo direito <div class="radio">
+                        </div></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 6: Question 6 -->
+        <div class="screen" id="screen-q6">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2 class="question-title">Se três clientes atrasarem hoje, você perceberia imediatamente?</h2>
+
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectOption(this, 6)">Sim <div class="radio"></div></button>
+                    <button class="option-btn" onclick="selectOption(this, 6)">Não tenho certeza <div class="radio">
+                        </div></button>
+                    <button class="option-btn" onclick="selectOption(this, 6)">Provavelmente não <div class="radio">
+                        </div></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 7: Analyzing -->
+        <div class="screen" id="screen-analyzing">
+            <div class="analyzing-container">
+                <div class="spinner"></div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Analisando suas respostas...</h2>
+                <p class="text-light">Identificando o perfil das suas cobranças.</p>
+            </div>
+
+            <!-- Botão oculto no início, aparece após alguns segundos -->
+            <div class="fixed-bottom" id="btn-result" style="display: none; width: 100%; animation: fadeIn 0.5s;">
+                <a href="resultado.html" class="btn btn-primary">VER MEU RESULTADO</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

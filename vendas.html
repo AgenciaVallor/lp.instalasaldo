@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>InstalaSaldo | Proteja seu lucro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sales-container {
+            background-color: var(--white);
+            padding-bottom: 100px;
+        }
+
+        section {
+            padding: 56px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 56px 24px 64px;
+            border-bottom: none;
+            border-radius: 0 0 32px 32px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 2.1rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: #CBD5E1;
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        /* Identificação */
+        .grid-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .tag-item {
+            background-color: var(--bg);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Escalada / Dores */
+        .pain-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .pain-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background-color: #FEF2F2;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            gap: 12px;
+            font-weight: 600;
+            color: #991B1B;
+        }
+
+        /* Mecanismo */
+        .not-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .not-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        /* Demo */
+        .demo-card {
+            background: linear-gradient(145deg, var(--primary), #1E293B);
+            border-radius: 24px;
+            padding: 28px;
+            color: var(--white);
+            margin: 32px 0;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .service-row:last-child {
+            border-bottom: none;
+        }
+
+        .val-total {
+            color: #94A3B8;
+        }
+
+        .val-rec {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .demo-total {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* Prova Social */
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding-bottom: 16px;
+            scrollbar-width: none;
+        }
+
+        .testimonial-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #FBBF24;
+            margin-bottom: 12px;
+        }
+
+        /* Diferenciais */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .diff-card {
+            background-color: var(--bg);
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Oferta */
+        .offer-box {
+            background: linear-gradient(135deg, #064E3B 0%, var(--green) 100%);
+            border-radius: 28px;
+            padding: 40px 28px;
+            color: var(--white);
+            margin: 40px 0;
+            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-tag {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin: 16px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .price-tag span {
+            font-size: 1.5rem;
+            margin-top: 12px;
+            margin-right: 4px;
+        }
+
+        .include-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        /* Garantia */
+        .guarantee {
+            background-color: var(--white);
+            border: 2px dashed var(--border);
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 16px 24px 24px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0));
+            z-index: 50;
+        }
+
+        .strong-text {
+            font-weight: 800;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container sales-container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="tag-pill">Alerta para Técnicos</div>
+            <h1>Você pode estar trabalhando o mês inteiro… e ainda assim não saber exatamente quanto ainda tem para
+                receber.</h1>
+            <p>Técnicos de instalação estão deixando dinheiro escapar todos os meses porque não enxergam o <strong>saldo
+                    vivo</strong> das suas próprias obras.</p>
+            <a href="#oferta" class="btn" style="background-color: var(--orange); color: var(--primary);">QUERO ATIVAR
+                MEU PAINEL DE SALDO VIVO™</a>
+        </section>
+
+        <!-- Identificação -->
+        <section>
+            <h2 style="font-size: 1.4rem; margin-bottom: 8px;">Se você trabalha com:</h2>
+
+            <div class="grid-tags">
+                <div class="tag-item">Ar-condicionado</div>
+                <div class="tag-item">Energia solar</div>
+                <div class="tag-item">Portão eletrônico</div>
+                <div class="tag-item">Cerca elétrica</div>
+                <div class="tag-item">Câmeras</div>
+            </div>
+
+            <p class="mt-4">Provavelmente recebe assim: <strong>Entrada + restante depois.</strong></p>
+
+            <div
+                style="background-color: var(--bg); border-left: 4px solid var(--primary); padding: 16px; margin-top: 24px; border-radius: 0 16px 16px 0;">
+                <p class="fw-600 mb-4" style="color: var(--primary);">Hoje, sem abrir o WhatsApp, você sabe exatamente
+                    quanto ainda está na rua?</p>
+                <p style="color: #DC2626; font-weight: 700;">Se não sabe com precisão, você está operando no escuro.</p>
+            </div>
+        </section>
+
+        <!-- Escalada de Tensão -->
+        <section>
+            <h2 style="font-size: 1.5rem;">É assim que o lucro vaza:</h2>
+
+            <ul class="pain-list">
+                <li class="pain-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Cliente que some
+                </li>
+                <li class="pain-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Parcela que atrasa
+                </li>
+                <li class="pain-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Serviço que você esquece de cobrar
+                </li>
+                <li class="pain-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Dinheiro parado que você nem lembra
+                </li>
+            </ul>
+
+            <p style="font-size: 1.2rem; text-align: center; margin-top: 32px;" class="strong-text">"Você trabalha duro.
+                Mas parte do seu lucro pode estar invisível."</p>
+        </section>
+
+        <!-- Mecanismo Único -->
+        <section>
+            <h2 style="font-size: 1.8rem; color: var(--primary);">Conheça o Método<br>Painel de Saldo Vivo™</h2>
+
+            <div class="not-list">
+                <div class="not-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    Não é planilha.
+                </div>
+                <div class="not-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    Não é sistema contábil.
+                </div>
+                <div class="not-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    Não é ERP complicado.
+                </div>
+            </div>
+
+            <p class="mt-4"><strong>É um painel visual imediato que mostra:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 12px; color: var(--text); line-height: 1.8;">
+                <li>Total já recebido</li>
+                <li><strong>Total ainda circulando</strong></li>
+                <li>Quantos serviços estão pendentes</li>
+                <li>Quem já quitou e quem ainda deve</li>
+            </ul>
+
+            <div style="background-color: #EFF6FF; padding: 20px; border-radius: 16px; margin-top: 24px;">
+                <p style="color: #1E3A8A; font-style: italic; font-weight: 500;">"Enquanto planilhas mostram números
+                    mortos… o Painel de Saldo Vivo™ mostra o dinheiro que ainda está respirando no mercado."</p>
+            </div>
+        </section>
+
+        <!-- Demonstração -->
+        <section>
+            <h2 style="font-size: 1.5rem; text-align: center;">Veja a diferença:</h2>
+
+            <div class="demo-card">
+                <div class="service-row">
+                    <span>Serviço 1 <span class="val-total">(R$ 6.000)</span></span>
+                    <span class="val-rec">Rec: 3.000</span>
+                </div>
+                <div class="service-row">
+                    <span>Serviço 2 <span class="val-total">(R$ 4.500)</span></span>
+                    <span class="val-rec">Rec: 2.000</span>
+                </div>
+                <div class="service-row">
+                    <span>Serviço 3 <span class="val-total">(R$ 3.200)</span></span>
+                    <span class="val-rec">Rec: 3.200</span>
+                </div>
+                <div class="service-row">
+                    <span>Serviço 4 <span class="val-total">(R$ 8.000)</span></span>
+                    <span class="val-rec">Rec: 4.000</span>
+                </div>
+
+                <div class="demo-total">
+                    <p style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 4px;">Total ainda na rua:</p>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--orange);">R$ 9.700</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary);">"Você lembraria
+                desse valor exato sem um painel?"</p>
+        </section>
+
+        <!-- Prova Social -->
+        <section style="background-color: var(--bg); padding-left: 0; padding-right: 0;">
+            <h2 style="font-size: 1.5rem; padding: 0 24px; margin-bottom: 24px;">O que dizem os técnicos:</h2>
+
+            <div class="testimonial-carousel" style="padding-left: 24px; padding-right: 24px;">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 16px;">"Descobri quase 6 mil reais que estavam para
+                        entrar e eu nem tinha clareza disso."</p>
+                    <p class="fw-600" style="font-size: 0.9rem;">— Marcelo R.</p>
+                    <p style="font-size: 0.8rem; color: var(--text-light);">Instalador de ar-condicionado</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 16px;">"Hoje eu sei exatamente quem me deve. Isso tirou
+                        uma ansiedade enorme das minhas costas."</p>
+                    <p class="fw-600" style="font-size: 0.9rem;">— Leandro S.</p>
+                    <p style="font-size: 0.8rem; color: var(--text-light);">Energia solar</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 16px;">"Eu usava caderno. Depois do painel, nunca mais
+                        fiquei perdido com meu dinheiro."</p>
+                    <p class="fw-600" style="font-size: 0.9rem;">— Diego M.</p>
+                    <p style="font-size: 0.8rem; color: var(--text-light);">Portão eletrônico</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais -->
+        <section>
+            <h2 style="font-size: 1.5rem; text-align: center;">Simples como tem que ser.</h2>
+
+            <div class="diff-grid">
+                <div class="diff-card">📱 Instala como app no celular</div>
+                <div class="diff-card">🔌 Funciona offline</div>
+                <div class="diff-card">🚫 Sem mensalidade</div>
+                <div class="diff-card">🔒 Dados 100% no seu aparelho</div>
+            </div>
+        </section>
+
+        <!-- Oferta -->
+        <section id="oferta" style="border-bottom: none;">
+            <h2 style="font-size: 2rem; color: var(--primary); text-align: center; line-height: 1.1;">Proteja seu lucro
+                com clareza total.</h2>
+
+            <div class="offer-box">
+                <h3 style="font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 24px;">Você leva hoje:</h3>
+
+                <ul style="list-style: none;" class="include-list">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Acesso vitalício ao <strong>InstalaSaldo</strong></span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Método <strong>Painel de Saldo Vivo™</strong></span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Checklist de Cobrança Profissional</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Modelos de mensagem para cobrar cliente</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Mini guia de organização financeira para instaladores</span>
+                    </li>
+                </ul>
+
+                <div
+                    style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 24px; padding-top: 24px; text-align: center;">
+                    <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Apenas hoje</p>
+                    <div class="price-tag" style="justify-content: center;">
+                        <span>R$</span> 67<span style="font-size: 1.5rem; margin-top: 28px;">,00</span>
+                    </div>
+                    <p style="font-size: 0.9rem; font-weight: 500;">Pagamento único. Sem mensalidade. Sem taxas
+                        escondidas.</p>
+                </div>
+            </div>
+
+            <button class="btn"
+                style="background-color: var(--orange); color: var(--primary); font-size: 1.2rem; cursor: pointer; padding: 20px;">QUERO
+                ATIVAR INSTALASALDO AGORA</button>
+        </section>
+
+        <!-- Garantia -->
+        <section>
+            <div class="guarantee">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Teste sem risco.</h2>
+                <p style="color: var(--text); font-size: 1.1rem; line-height: 1.6;">Use por 7 dias.<br>Se não sentir
+                    mais clareza financeira, peça reembolso.<br><strong>Sem burocracia.</strong></p>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section style="text-align: center; border-bottom: none; padding-bottom: 60px;">
+            <h2
+                style="font-size: 2rem; font-weight: 900; line-height: 1.1; margin-bottom: 32px; color: var(--primary);">
+                Você trabalha duro demais para perder dinheiro por descontrole.</h2>
+            <a href="#oferta" class="btn"
+                style="background-color: var(--orange); color: var(--primary); font-size: 1.1rem; box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);">ATIVAR
+                MEU PAINEL DE SALDO VIVO™</a>
+        </section>
+
+    </div>
+
+    <!-- Sticky CTA on mobile when scrolled way down (optional enhancement) -->
+    <div class="sticky-cta" id="stickyCta" style="display: none;">
+        <a href="#oferta" class="btn"
+            style="background-color: var(--orange); color: var(--primary); box-shadow: 0 -4px 15px rgba(245, 158, 11, 0.4);">ATIVAR
+            AGORA POR R$ 67</a>
+    </div>
+
+    <script>
+        // Simple script to show/hide sticky CTA based on scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('stickyCta');
+            const offerSection = document.getElementById('oferta');
+
+            if (window.scrollY > 500 && window.scrollY < (offerSection.offsetTop - window.innerHeight)) {
+                stickyCta.style.display = 'block';
+            } else {
+                stickyCta.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
