@@ -83,6 +83,9 @@ function startAnalysis() {
         document.querySelector('#screen-analyzing h2').textContent = "Pronto! Análise Concluída";
         document.querySelector('#screen-analyzing p').textContent = "Identificamos o seu perfil de vendedor.";
 
-        btnContainer.style.display = 'flex';
+        // Redireciona direto para a página de vendas após concluir a análise
+        setTimeout(() => {
+            window.location.href = 'vendas.html';
+        }, 1000); // 1 segundo extra para o usuário ver a confirmação
     }, 2500); // 2.5 seconds analyzing
 }
