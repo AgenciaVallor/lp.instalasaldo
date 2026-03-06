@@ -1,13 +1,34 @@
 function showScreen(id) {
-    // Hide all screens
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active');
-    });
-    // Show target screen
+    const currentActive = document.querySelector('.screen.active');
+    if (currentActive) {
+        currentActive.style.opacity = '0';
+        currentActive.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            currentActive.classList.remove('active');
+            activateNewScreen(id);
+        }, 300);
+    } else {
+        activateNewScreen(id);
+    }
+}
+
+function activateNewScreen(id) {
     const target = document.getElementById(id);
     if (target) {
+        target.style.opacity = '0';
+        target.style.transform = 'translateY(20px)';
         target.classList.add('active');
+
+        // Force reflow
+        target.offsetHeight;
+
+        target.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        target.style.opacity = '1';
+        target.style.transform = 'translateY(0)';
         window.scrollTo(0, 0);
+
+        // Re-run reveal check
+        revealElements();
     }
 }
 
