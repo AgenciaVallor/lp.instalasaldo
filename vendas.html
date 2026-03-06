@@ -224,12 +224,105 @@
         }
 
         .diff-card {
-            background-color: var(--bg);
-            padding: 16px;
-            border-radius: 16px;
+            background-color: var(--bg-soft);
+            padding: 24px;
+            border-radius: 24px;
             text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .diff-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+            margin: 40px 0;
+        }
+
+        .comparison-table th {
+            padding: 16px;
+            text-align: left;
+            color: var(--text-muted);
             font-size: 0.9rem;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-table td {
+            padding: 24px;
+            background-color: var(--bg-soft);
+            border-radius: 16px;
+        }
+
+        .comparison-table .old-way {
+            background-color: #FEF2F2;
+            color: #991B1B;
+            border-left: 4px solid var(--red-danger);
+        }
+
+        .comparison-table .new-way {
+            background-color: #ECFDF5;
+            color: #065F46;
+            border-left: 4px solid var(--green-success);
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            background-color: var(--bg-pure);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            background-color: var(--bg-pure);
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        /* Long Copy Typography */
+        .copy-text {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .highlight-box {
+            background-color: #F8FAFC;
+            border-left: 4px solid var(--accent-blue);
+            padding: 32px;
+            border-radius: 0 24px 24px 0;
+            margin: 40px 0;
         }
 
         /* Oferta */
@@ -397,134 +490,250 @@
             </div>
         </section>
 
-        <!-- Demonstração -->
-        <section class="reveal" style="background-color: var(--bg-soft);">
-            <div class="text-center">
-                <h2 style="font-size: 2.2rem; margin-bottom: 16px;">O Painel da sua Liberdade</h2>
-                <p class="text-muted" style="margin-bottom: 48px;">Visualização imediata do seu fluxo de caixa real.</p>
-            </div>
-
-            <div class="demo-card icon-3d">
-                <div class="service-row">
-                    <span style="font-weight: 600;">Instalação Solar - Cond. Verdes</span>
-                    <span class="val-rec">R$ 12.400 / Recebido</span>
-                </div>
-                <div class="service-row">
-                    <span style="font-weight: 600;">Manutenção Central - Clínica Central</span>
-                    <span class="text-danger" style="font-weight: 700;">R$ 4.500 / Pendente</span>
-                </div>
-                <div class="service-row">
-                    <span style="font-weight: 600;">Kit Segurança - Residencial Silva</span>
-                    <span class="val-rec">R$ 2.800 / Recebido</span>
-                </div>
-
-                <div class="demo-total glass">
-                    <p style="font-size: 1rem; color: #94A3B8; margin-bottom: 8px; text-transform: uppercase;">Total a
-                        Receber hoje:</p>
-                    <p style="font-size: 3rem; font-weight: 900; color: var(--green-success);">R$ 17.900,00</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Prova Social -->
+        <!-- A Ferida (The Problem) -->
         <section class="reveal">
-            <h2 style="font-size: 2.2rem; text-align: center; margin-bottom: 48px;">Quem já usa e aprova:</h2>
-
-            <div class="testimonial-carousel"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0;">
-                <div class="testimonial-card">
-                    <p style="font-style: italic; margin-bottom: 24px; font-size: 1.1rem; color: var(--text-main);">"O
-                        Painel de Saldo Vivo mudou meu jogo. Descobri R$ 8.500 que estavam 'esquecidos' em obras
-                        passadas."</p>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--accent-blue);">
-                        </div>
-                        <div>
-                            <p class="fw-600">Ricardo Mendes</p>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Técnico em Energia Solar</p>
-                        </div>
-                    </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 32px; line-height: 1.2;">Você trabalha, trabalha... e no
+                    final do mês a conta não fecha?</h2>
+                <div class="copy-text">
+                    <p>Se você é instalador, sabe do que estou falando. A rotina é pesada: sol quente, escada,
+                        ferramentas, clientes exigentes. Você entrega um serviço impecável, mas na hora de ver o
+                        lucro...</p>
+                    <p><strong>A confusão começa.</strong></p>
+                    <p>Será que o cliente da semana passada pagou a segunda parcela? E aquele serviço extra de reposição
+                        de gás, você lembrou de cobrar? Onde está anotado o combinado com o Seu João?</p>
                 </div>
 
-                <div class="testimonial-card">
-                    <p style="font-style: italic; margin-bottom: 24px; font-size: 1.1rem; color: var(--text-main);">"Não
-                        uso mais papel nem planilha furada. Hoje eu cobro com autoridade porque sei o status de cada
-                        cliente."</p>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--green-success);">
-                        </div>
-                        <div>
-                            <p class="fw-600">Fábio Oliveira</p>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Especialista em Climatização</p>
-                        </div>
-                    </div>
+                <div class="highlight-box">
+                    <p style="font-size: 1.4rem; font-weight: 700; color: var(--primary);">O maior ladrão do seu lucro
+                        não é a concorrência. É a sua falta de clareza financeira.</p>
+                </div>
+
+                <div class="copy-text">
+                    <p>Sem um sistema, você está apenas "trocando dinheiro". Você recebe de um cliente para pagar o
+                        fornecedor de outro. É um ciclo perigoso que quebra empresas promissoras todos os dias.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Diferenciais -->
+        <!-- A Solução (O Método InstalaSaldo) -->
+        <section class="reveal" style="background-color: #F8FAFC;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <span class="tag-pill">Conheça o Método</span>
+                    <h2 style="font-size: 3rem;">O GPS do Instalador Lucrativo</h2>
+                    <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto;">Não é apenas um app. É uma nova
+                        forma de enxergar o seu negócio.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div>
+                        <h3 style="margin-bottom: 20px; font-size: 1.5rem; color: var(--accent-blue);">1. Registro
+                            Instantâneo</h3>
+                        <p class="copy-text" style="font-size: 1.1rem;">Acabou o serviço? Em 10 segundos você registra o
+                            valor, quanto recebeu e quanto ficou pendente. Sem planilhas complexas.</p>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px; font-size: 1.5rem; color: var(--accent-blue);">2. Controle de
+                            Pendências</h3>
+                        <p class="copy-text" style="font-size: 1.1rem;">O InstalaSaldo te mostra em vermelho vivo quem
+                            está te devendo. Nunca mais deixe um centavo ser esquecido no bolso do cliente.</p>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px; font-size: 1.5rem; color: var(--accent-blue);">3. Saldo Real em
+                            Tempo Real</h3>
+                        <p class="copy-text" style="font-size: 1.1rem;">Saiba exatamente quanto você tem em caixa e
+                            quanto tem "na rua" para receber. Previsibilidade total para investir na sua empresa.</p>
+                    </div>
+                </div>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situação</th>
+                                <th>Sem InstalaSaldo</th>
+                                <th>Com InstalaSaldo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cobranças</td>
+                                <td class="old-way">Esquece de cobrar extras e parcelas.</td>
+                                <td class="new-way">Notificação visual de cada centavo pendente.</td>
+                            </tr>
+                            <tr>
+                                <td>Organização</td>
+                                <td class="old-way">Papéis molhados e prints perdidos.</td>
+                                <td class="new-way">Tudo centralizado, seguro e offline.</td>
+                            </tr>
+                            <tr>
+                                <td>Final do Mês</td>
+                                <td class="old-way">Insegurança: "Será que sobrou lucro?"</td>
+                                <td class="new-way">Clareza: Lucro líquido calculado na hora.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demonstração (Revisada) -->
         <section class="reveal">
-            <div class="diff-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <div class="diff-card glass icon-3d" style="padding: 32px; text-align: center; border-radius: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">⚡</div>
-                    <p class="fw-600">Instantâneo e Offline</p>
+
+            <!-- Prova Social -->
+            <section class="reveal">
+                <h2 style="font-size: 2.2rem; text-align: center; margin-bottom: 48px;">Quem já usa e aprova:</h2>
+
+                <div class="testimonial-carousel"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0;">
+                    <div class="testimonial-card">
+                        <p style="font-style: italic; margin-bottom: 24px; font-size: 1.1rem; color: var(--text-main);">
+                            "O
+                            Painel de Saldo Vivo mudou meu jogo. Descobri R$ 8.500 que estavam 'esquecidos' em obras
+                            passadas."</p>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--accent-blue);">
+                            </div>
+                            <div>
+                                <p class="fw-600">Ricardo Mendes</p>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Técnico em Energia Solar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p style="font-style: italic; margin-bottom: 24px; font-size: 1.1rem; color: var(--text-main);">
+                            "Não
+                            uso mais papel nem planilha furada. Hoje eu cobro com autoridade porque sei o status de cada
+                            cliente."</p>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--green-success);">
+                            </div>
+                            <div>
+                                <p class="fw-600">Fábio Oliveira</p>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Especialista em Climatização</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="diff-card glass icon-3d" style="padding: 32px; text-align: center; border-radius: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">🔒</div>
-                    <p class="fw-600">Privacidade Total</p>
+            </section>
+
+            <!-- Diferenciais -->
+            <section class="reveal">
+                <div class="diff-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div class="diff-card glass icon-3d"
+                        style="padding: 32px; text-align: center; border-radius: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">⚡</div>
+                        <p class="fw-600">Instantâneo e Offline</p>
+                    </div>
+                    <div class="diff-card glass icon-3d"
+                        style="padding: 32px; text-align: center; border-radius: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">🔒</div>
+                        <p class="fw-600">Privacidade Total</p>
+                    </div>
+                    <div class="diff-card glass icon-3d"
+                        style="padding: 32px; text-align: center; border-radius: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">📱</div>
+                        <p class="fw-600">Instala em 1 Toque</p>
+                    </div>
+                    <div class="diff-card glass icon-3d"
+                        style="padding: 32px; text-align: center; border-radius: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">💰</div>
+                        <p class="fw-600">Sem Mensalidades</p>
+                    </div>
                 </div>
-                <div class="diff-card glass icon-3d" style="padding: 32px; text-align: center; border-radius: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">📱</div>
-                    <p class="fw-600">Instala em 1 Toque</p>
+            </section>
+
+            <!-- Oferta -->
+            <section id="oferta" class="reveal" style="border-bottom: none;">
+                <div class="offer-box">
+                    <div class="grid-2-cols">
+                        <div class="offer-content">
+                            <h2 style="font-size: 2.5rem; color: var(--bg-pure); margin-bottom: 24px;">Transforme sua
+                                gestão hoje.</h2>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="var(--green-success)" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span><strong>Acesso Vitalício:</strong> Pague uma vez, use para sempre.</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="var(--green-success)" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span><strong>Sistema InstalaSaldo:</strong> Controle total de caixa.</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="var(--green-success)" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span><strong>BÔNUS:</strong> Guia de Organização Financeira para
+                                        Instaladores.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="offer-pricing text-center">
+                            <p style="text-decoration: line-through; opacity: 0.5; margin-bottom: 0;">De R$ 197 por
+                                apenas:</p>
+                            <div class="price-tag">
+                                <span>R$</span> 67,00
+                            </div>
+                            <a href="https://pay.kiwify.com.br/xxxxx" class="btn"
+                                style="background: var(--bg-pure); color: var(--primary); font-size: 1.4rem; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                                QUERO MEU ACESSO AGORA
+                            </a>
+                            <p style="margin-top: 24px; opacity: 0.8; font-size: 0.9rem;">Pagamento único via Cartão ou
+                                PIX.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="diff-card glass icon-3d" style="padding: 32px; text-align: center; border-radius: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">💰</div>
-                    <p class="fw-600">Sem Mensalidades</p>
-                </div>
-            </div>
+            </section>
         </section>
 
-        <!-- Oferta -->
-        <section id="oferta" class="reveal" style="border-bottom: none;">
-            <div class="offer-box">
-                <div class="grid-2-cols">
-                    <div class="offer-content">
-                        <h2 style="font-size: 2.5rem; color: var(--bg-pure); margin-bottom: 24px;">Transforme sua gestão
-                            hoje.</h2>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="var(--green-success)" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Acesso Vitalício ao App</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="var(--green-success)" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Sistema de InstalaSaldo</span>
-                            </li>
-                        </ul>
+        <!-- FAQ (Perguntas Frequentes) -->
+        <section class="reveal">
+            <h2 style="font-size: 2.2rem; text-align: center; margin-bottom: 48px;">Dúvidas Frequentes</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        O pagamento é mensal?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
-                    <div class="offer-pricing text-center">
-                        <p
-                            style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px; color: var(--green-success);">
-                            Oferta Exclusiva</p>
-                        <div class="price-tag">
-                            <span>R$</span> 67,00
-                        </div>
-                        <a href="https://pay.kiwify.com.br/xxxxx" class="btn"
-                            style="background: var(--bg-pure); color: var(--primary); font-size: 1.4rem; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-                            QUERO MEU ACESSO AGORA
-                        </a>
-                        <p style="margin-top: 24px; opacity: 0.8; font-size: 0.9rem;">Pagamento único. Acesso imediato.
-                        </p>
+                    <div class="faq-answer">Não. O InstalaSaldo é de pagamento único. Você paga uma vez e tem acesso
+                        vitalício para usar no seu celular.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Funciona sem internet?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
+                    <div class="faq-answer">Sim! Ele foi desenhado para quem está em obras onde o sinal é ruim. Você
+                        registra tudo offline e ele salva no seu aparelho.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Preciso instalar algo pesado?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">Não. Ele usa tecnologia PWA, o que significa que você "instala" apenas
+                        criando um atalho na tela inicial do seu celular. Leve e rápido.</div>
                 </div>
             </div>
         </section>
@@ -562,6 +771,14 @@
             } else {
                 stickyCta.style.display = 'none';
             }
+        });
+
+        // Script para FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
         });
 
         // Smooth scroll para âncoras
