@@ -173,6 +173,68 @@
             display: none;
             border-top: 1px solid #E2E8F0;
         }
+
+        /* Social Proof Popup */
+        .social-proof-popup {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            transform: translateY(150%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #E2E8F0;
+            max-width: 280px;
+        }
+
+        .social-proof-popup.active {
+            transform: translateY(0);
+        }
+
+        .social-proof-popup .avatar {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .social-proof-info p {
+            margin: 0 !important;
+            line-height: 1.3 !important;
+            font-size: 0.85rem !important;
+        }
+
+        .social-proof-info .name {
+            font-weight: 800;
+            color: #0F172A;
+        }
+
+        .social-proof-info .status {
+            color: #64748B;
+        }
+
+        @media (max-width: 768px) {
+            .social-proof-popup {
+                bottom: 90px;
+                /* Ficar acima do sticky CTA no mobile */
+                left: 16px;
+                right: 16px;
+                max-width: none;
+            }
+        }
     </style>
 </head>
 
@@ -191,7 +253,8 @@
                     suas instalações</h1>
                 <p>A maioria dos técnicos <strong>acha que está com tudo sob controle</strong>… Até perceber que tem
                     <strong>milhares de reais espalhados</strong> entre clientes que ainda não pagaram a parte final do
-                    serviço.</p>
+                    serviço.
+                </p>
                 <div class="cta-box">
                     <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta">QUERO VER QUANTO TENHO PARA
                         RECEBER</a>
@@ -370,6 +433,15 @@
 
     </div>
 
+    <!-- Social Proof Pop-up -->
+    <div id="social-proof-popup" class="social-proof-popup">
+        <div class="avatar">J</div>
+        <div class="social-proof-info">
+            <p class="name">João Silva</p>
+            <p class="status">acabou de comprar o InstalaSaldo 💰</p>
+        </div>
+    </div>
+
     <div class="sticky-bottom" id="stickyCta">
         <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta"
             style="width: 100%; text-align: center;">INSTALAR POR R$ 67</a>
@@ -399,6 +471,33 @@
             el.classList.add('reveal');
             observer.observe(el);
         });
+
+        // Script para Prova Social
+        const names = ["João Silva", "Maria Santos", "Ricardo Oliveira", "Fernanda Lima", "Carlos Gomes", "Ana Paula", "Marcos Ferreira", "Roberto Souza", "Juliana Costa", "Lucas Rocha", "Bruno Almeida", "Patrícia Ribeiro", "Diego Martins", "Camila Lopes", "Rodrigo Alves"];
+        let currentNameIndex = 0;
+
+        function showSocialProof() {
+            const popup = document.getElementById('social-proof-popup');
+            const nameEl = popup.querySelector('.name');
+            const avatarEl = popup.querySelector('.avatar');
+
+            const name = names[currentNameIndex];
+            nameEl.textContent = name;
+            avatarEl.textContent = name.charAt(0);
+
+            popup.classList.add('active');
+
+            setTimeout(() => {
+                popup.classList.remove('active');
+            }, 4000); // Fica visível por 4 segundos
+
+            currentNameIndex = (currentNameIndex + 1) % names.length;
+        }
+
+        // Aparece a cada 10 segundos
+        setInterval(showSocialProof, 10000);
+        // Primeira aparição após 4s
+        setTimeout(showSocialProof, 4000);
     </script>
 
 </body>
