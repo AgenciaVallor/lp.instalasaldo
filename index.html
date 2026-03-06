@@ -20,25 +20,29 @@
 
         <!-- Screen 0: Intro -->
         <div class="screen active" id="screen-intro">
-            <div
+            <div class="grid-2-cols"
                 style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-                <div
-                    style="width: 80px; height: 80px; background-color: var(--primary); border-radius: 20px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center;">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2"
+                <div class="icon-3d float-animation"
+                    style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), #2D3748); border-radius: 24px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="1" x2="12" y2="23"></line>
                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                     </svg>
                 </div>
 
-                <h1 style="font-size: 2rem; margin-bottom: 16px;">Descubra em 60 segundos se você está deixando dinheiro
-                    escapar nas suas instalações</h1>
-
-                <p class="text-light fw-600">Teste rápido para técnicos que trabalham com sinal + restante.</p>
+                <div class="reveal active">
+                    <h1
+                        style="font-size: 2.5rem; margin-bottom: 24px; background: linear-gradient(to right, var(--primary), var(--text-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Descubra se está perdendo dinheiro nas instalações</h1>
+                    <p class="text-light fw-600" style="font-size: 1.2rem;">Teste rápido para técnicos que trabalham com
+                        sinal + restante.</p>
+                </div>
             </div>
 
-            <div class="fixed-bottom">
-                <button class="btn btn-primary" onclick="startQuiz()">COMEÇAR AGORA</button>
+            <div class="fixed-bottom reveal active" style="transition-delay: 0.3s;">
+                <button class="btn btn-primary" onclick="startQuiz()"
+                    style="padding: 24px 48px; font-size: 1.3rem;">COMEÇAR AGORA</button>
             </div>
         </div>
 
@@ -53,15 +57,15 @@
 
                 <div class="options-list">
                     <button class="option-btn" onclick="selectOption(this, 1)">Ar-condicionado <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 1)">Energia solar <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 1)">Portão eletrônico <div class="radio">
                         </div></button>
                     <button class="option-btn" onclick="selectOption(this, 1)">Câmeras <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 1)">Cerca elétrica <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 1)">Outros <div class="radio"></div></button>
                 </div>
             </div>
@@ -84,7 +88,7 @@
                     <button class="option-btn" onclick="selectOption(this, 2)">Parcelado informalmente <div
                             class="radio"></div></button>
                     <button class="option-btn" onclick="selectOption(this, 2)">À vista <div class="radio"></div>
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -100,11 +104,11 @@
 
                 <div class="options-list">
                     <button class="option-btn" onclick="selectOption(this, 3)">Sei exatamente <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 3)">Tenho uma ideia <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 3)">Não faço ideia <div class="radio"></div>
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -122,7 +126,7 @@
                     <button class="option-btn" onclick="selectOption(this, 4)">Sim <div class="radio"></div></button>
                     <button class="option-btn" onclick="selectOption(this, 4)">Talvez <div class="radio"></div></button>
                     <button class="option-btn" onclick="selectOption(this, 4)">Nunca (acho) <div class="radio"></div>
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -138,11 +142,11 @@
 
                 <div class="options-list">
                     <button class="option-btn" onclick="selectOption(this, 5)">WhatsApp <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 5)">Caderno <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 5)">Planilha <div class="radio"></div>
-                        </button>
+                    </button>
                     <button class="option-btn" onclick="selectOption(this, 5)">Não controlo direito <div class="radio">
                         </div></button>
                 </div>
