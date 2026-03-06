@@ -309,8 +309,7 @@
                     serviço.
                 </p>
                 <div class="cta-box">
-                    <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta">QUERO VER QUANTO TENHO PARA
-                        RECEBER</a>
+                    <a href="#oferta" class="btn-cta">QUERO VER QUANTO TENHO PARA RECEBER</a>
                     <div class="benefit-tag">
                         <span>• Pagamento único</span>
                         <span>• Acesso vitalício</span>
@@ -353,7 +352,7 @@
                         entrar.</p>
                 </div>
                 <div class="cta-box">
-                    <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta">RESOLVER ISSO AGORA</a>
+                    <a href="#oferta" class="btn-cta">RESOLVER ISSO AGORA</a>
                 </div>
             </div>
         </section>
@@ -421,7 +420,7 @@
                             inteiro.</strong></p>
                 </div>
                 <div class="cta-box">
-                    <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta">PARAR DE PERDER DINHEIRO</a>
+                    <a href="#oferta" class="btn-cta">PARAR DE PERDER DINHEIRO</a>
                 </div>
             </div>
         </section>
@@ -462,7 +461,7 @@
         </section>
 
         <!-- Oferta -->
-        <section>
+        <section id="oferta">
             <div class="price-card">
                 <h2>Acesso Vitalício</h2>
                 <p>Pagamento único, sem mensalidades.</p>
@@ -496,8 +495,7 @@
     </div>
 
     <div class="sticky-bottom" id="stickyCta">
-        <a href="https://payfast.greenn.com.br/mps3dg9" class="btn-cta"
-            style="width: 100%; text-align: center;">INSTALAR POR R$ 67</a>
+        <a href="#oferta" class="btn-cta" style="width: 100%; text-align: center;">INSTALAR POR R$ 67</a>
     </div>
 
     <script>
@@ -551,6 +549,20 @@
         setInterval(showSocialProof, 10000);
         // Primeira aparição após 4s
         setTimeout(showSocialProof, 4000);
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 
 </body>
